@@ -1,0 +1,22 @@
+{
+	"name": "TCP通信を転送・内容確認",
+	"description": "127.0.0.1:XXXX宛の通信を別のIP:PORTに転送する",
+	"version": "0.1",
+	"permissions": [
+	],
+
+	"app": {
+		"background": {
+			"scripts": ["background.js"]
+		}
+	},
+
+	"sockets": {
+		"tcp": {
+			"connect": "*"
+		},
+		"tcpServer": {
+			"listen": "127.0.0.1"
+		}
+	}
+}

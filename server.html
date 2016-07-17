@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				font-size: 120%;
+			}
+			
+			.clickable {
+				cursor: pointer;
+			}
+			
+			th,
+			td {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>ローカル</th>
+					<th></th>
+					<th>リモート（Docker）</th>
+				</tr>
+				<tr>
+					<td id="localInfo">リモート</td>
+					<td>⇔</td>
+					<td id="targetInfo">リモート</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			<label class="clickable">
+				<input type="checkbox" id="log-enable" class="clickable">
+				ログをconsoleに出す
+			</label>
+		</p>
+		<script src="server.js"></script>
+	</body>
+</html>

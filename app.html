@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+				font-size: 120%;
+			}
+			
+			.clickable {
+				cursor: pointer;
+			}
+			
+			th,
+			td,
+			input[type="button"] {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>ローカル</th>
+					<th></th>
+					<th>リモート</th>
+				</tr>
+				<tr>
+					<td>
+						127.0.0.1 :
+						<input id="localPort" type="number" min="0" max="65535" placeholder="80">
+					</td>
+					<td>⇔</td>
+					<td>
+						<input id="targetAddress" type="text" placeholder="localhost"> :
+						<input id="targetPort" type="number" min="0" max="65535" placeholder="8080">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			<input type="button" id="createServer" class="clickable" value="Create Server">
+			<input type="button" id="closeAllConnection" class="clickable" value="Stop All Server, Connection">
+		</p>
+		<script src="app.js"></script>
+	</body>
+</html>
