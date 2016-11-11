@@ -1,7 +1,12 @@
 var logEnabled = false;
+var logBinaryEnabled = false;
 
 document.getElementById("log-enable").addEventListener("change", evt => {
 	logEnabled = evt.target.checked;
+});
+
+document.getElementById("log-binary-enable").addEventListener("change", evt => {
+	logBinaryEnabled = evt.target.checked;
 });
 
 
@@ -106,6 +111,11 @@ function setEvents(serverSocketId) {
 					if (logEnabled) {
 						var requestText = arrayBuffer2string(info.data);
 						console.log("local[" + socketId + "] -> remote[" + remoteSocketId + "]", requestText.length, requestText.split("\n")[0]);
+						if (logBinaryEnabled) {
+							new Uint8Array(info.data).forEach((value, i) => {
+								console.debug(`${i}: ${value}`);
+							});
+						}
 					}
 				});
 			} else {
@@ -125,6 +135,11 @@ function setEvents(serverSocketId) {
 								if (logEnabled) {
 									var requestText = arrayBuffer2string(info.data);
 									console.log("local[" + localSocketId + "] -> remote[" + remoteSocketId + "]", "new", requestText.length, requestText.split("\n")[0]);
+									if (logBinaryEnabled) {
+										new Uint8Array(info.data).forEach((value, i) => {
+											console.debug(`${i}: ${value}`);
+										});
+									}
 								}
 							});
 						}
@@ -139,6 +154,11 @@ function setEvents(serverSocketId) {
 				if (logEnabled) {
 					var requestText = arrayBuffer2string(info.data);
 					console.debug("remote[" + remoteSocketId + "] -> local[" + localSocketId + "]", "reuse", requestText.length, requestText.split("\n")[0]);
+					if (logBinaryEnabled) {
+						new Uint8Array(info.data).forEach((value, i) => {
+							console.debug(`${i}: ${value}`);
+						});
+					}
 				}
 			});
 		}
