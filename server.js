@@ -157,7 +157,7 @@ function setEvents(serverSocketId) {
 			chrome.sockets.tcp.send(localSocketId, info.data, sendInfo =>  {
 				if (logEnabled) {
 					var requestText = arrayBuffer2string(info.data);
-					console.debug("remote[" + remoteSocketId + "] -> local[" + localSocketId + "]", "reuse", requestText.length, requestText.split("\n")[0]);
+					console.log("remote[" + remoteSocketId + "] -> local[" + localSocketId + "]", "reuse", requestText.length, requestText.split("\n")[0]);
 					if (logBinaryEnabled) {
 						new Uint8Array(info.data).forEach((value, i) => {
 							console.debug(`${i}: ${value}`);
