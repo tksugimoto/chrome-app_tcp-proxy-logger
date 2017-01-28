@@ -115,6 +115,8 @@ function setEvents(serverSocketId) {
 							new Uint8Array(info.data).forEach((value, i) => {
 								console.debug(`${i}: ${value}`);
 							});
+						} else {
+							console.debug(requestText);
 						}
 					}
 				});
@@ -139,6 +141,8 @@ function setEvents(serverSocketId) {
 										new Uint8Array(info.data).forEach((value, i) => {
 											console.debug(`${i}: ${value}`);
 										});
+									} else {
+										console.debug(requestText);
 									}
 								}
 							});
@@ -158,6 +162,8 @@ function setEvents(serverSocketId) {
 						new Uint8Array(info.data).forEach((value, i) => {
 							console.debug(`${i}: ${value}`);
 						});
+					} else {
+						console.debug(requestText);
 					}
 				}
 			});
